@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000; /* Warna latar belakang jika video belum dimuat atau tidak tersedia */
+            color: #fff; /* Warna teks */
+            font-family: Arial, sans-serif; /* Jenis font */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Meletakkan video di bawah elemen lain */
+        }
+
+        ul {
+            list-style-type: none; /* Menghilangkan bullet point */
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        a.download-link {
+            color: #fff; /* Warna teks tautan */
+            text-decoration: none; /* Menghilangkan dekorasi tautan */
+            margin-left: 10px; /* Jarak antara lambang download dan teks tautan */
+            display: flex;
+            align-items: center;
+        }
+
+        a.download-link img {
+            width: 50px; /* Lebar gambar */
+            height: auto; /* Tinggi gambar menyesuaikan proporsi */
+            margin-right: 10px; /* Jarak antara gambar dan teks */
+        }
+
+        a.download-link:hover {
+            text-decoration: underline; /* Tambahkan garis bawah saat tautan dihover */
+        }
+
+        .review-button {
+            background-color: #007bff; /* Warna latar tombol */
+            color: #fff; /* Warna teks tombol */
+            border: none; /* Menghilangkan border */
+            padding: 10px 20px; /* Padding tombol */
+            border-radius: 5px; /* Membuat sudut tombol melengkung */
+            cursor: pointer; /* Ubah kursor saat dihover menjadi pointer */
+        }
+
+        .review-button:hover {
+            background-color: #0056b3; /* Warna latar tombol saat dihover */
+        }
+
+        /* Tambahkan gaya untuk dropdown */
+        .dropdown {
+            display: none;
+            position: fixed;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            padding: 12px 16px;
+            z-index: 1;
+        }
+
+        /* Style the dropdown links */
+        .dropdown a {
+            color: black;
+            padding: 6px 8px;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* Change color of dropdown links on hover */
+        .dropdown a:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Show the dropdown menu on hover */
+        .review-button:hover + .dropdown, 
+        .review-button + .dropdown:hover {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="margin-bottom: 20px;">CLONE</h1>
+    <video autoplay loop muted>
+        <source src="src/elaina.mp4" type="video/mp4">
+        Maaf, browser Anda tidak mendukung pemutaran video.
+    </video>
+
+    <ul>
+        <li><a href="item/SMA 10 MALANG.zip" class="download-link" download><img src="src/foto2.jpg" alt="Download">SMA 10 MALANG</a></li>
+        <li><a href="item/SMP 21 MALANG.zip" class="download-link" download><img src="src/foto2.jpg" alt="Download"> SMP 21 MALANG</a></li>
+        <li><a href="src/file3.pdf" class="download-link" download><img src="src/foto2.jpg" alt="Download"> COMMING SOON</a></li>
+    </ul>
+
+    <!-- Tambahkan dropdown untuk review -->
+    <button class="review-button">Review</button>
+    <div class="dropdown">
+        <a href="#" onclick="openReview('review/indexsma.html')">SMA 10 MALANG</a>
+        <a href="#" onclick="openReview('review/indexsmp.html')">SMP 21 MALANG</a>
+        <a href="#" onclick="openReview('review3.html')">COMMING SOON</a>
+    </div>
+
+    <script>
+        // Fungsi untuk membuka halaman review
+        function openReview(url) {
+            var confirmation = confirm("Apakah Anda yakin ingin membuka halaman review?");
+            if (confirmation) {
+                window.open(url, '_blank');
+            }
+        }
+    </script>
+</body>
+</html>
